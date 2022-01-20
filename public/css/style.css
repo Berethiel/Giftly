@@ -1,0 +1,285 @@
+/****************TOOLS******************/
+
+:root {
+  --colorbg: #e3e3e3; /* background color */
+  --colorartbg: #d4cddd; /* main articles color in home page (before connect) */
+  --colortitlebg: #dab99a; /* wishlist title color */
+  --color: #f4c9c2;
+  --colortitle: #fcfcfc; /* h color */
+}
+
+/***************BASE*******************/
+
+* {
+  box-sizing: border-box;
+  /* La largeur de chaque boîte comprend le padding et la bordure */
+}
+
+html {
+  font-size: 62.5%;
+  /*Pour les rem : 1rem = 10px */
+}
+
+body {
+  font-size: 1.8rem;
+  /* Taille du texte par défaut */
+}
+
+/*****************GENERALITE*****************/
+
+body {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-family: "Amaranth", sans-serif;
+  color: var(--colortitle);
+}
+p,
+a,
+input,
+label,
+legend,
+button,
+small {
+  font-family: "Pavanam", sans-serif;
+  color: #222;
+}
+a {
+  text-decoration: none;
+  color: var(--colortitle);
+}
+.unvisible {
+  display: none;
+}
+/****************HEADER*********************/
+header {
+  background-color: var(--colortitlebg);
+}
+.logoConnect {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+.logo {
+  width: 15rem;
+  padding: 2rem;
+}
+.connect {
+  display: flex;
+  flex-direction: column;
+}
+.connect a {
+  color: #fff;
+  padding: 1rem;
+}
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+nav li {
+  font-family: "Amaranth", sans-serif;
+  list-style-type: none;
+  color:#fff;
+}
+nav a {
+  color: #fff;
+  padding: 1rem 2rem 0;
+  font-family: "Amaranth", sans-serif;
+}
+nav li:hover {
+  background-color: var(--colorartbg);
+}
+
+/********************FOOTER********************/
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+}
+footer a {
+  color: #222;
+  margin-right: 2rem;
+}
+
+/********************INDEX*********************/
+
+main h1,
+main h2,
+main p {
+  text-align: center;
+}
+.bann {
+  width: 100%;
+}
+.homeImg {
+  width: 100%;
+  height: auto;
+}
+/****************FORMULAIRES******************/
+
+fieldset {
+  border-radius: 5%;
+  margin-bottom: 1rem;
+}
+fieldset div {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+fieldset input {
+  width: 100%;
+}
+button {
+  padding: 1rem 2rem;
+  border-radius: 5%;
+  border: 1px solid var(--colortitlebg);
+  background-color: var(--colorbg);
+  margin: 0 auto;
+  display: block;
+  font-size: 1.6rem;
+}
+textarea {
+  height: 10rem;
+  width: 100%;
+}
+.unvisible {
+  display: none;
+}
+.errorVisible {
+  display: block;
+  color: red;
+}
+/*******************ABOUT*******************/
+
+h2 {
+  color: var(--colortitlebg);
+}
+
+/*******************************************/
+/************AFTER CONNECT******************/
+/*******************************************/
+
+section {
+  border-radius: 5%;
+  margin: 1rem;
+}
+
+.wishlist input {
+  margin: 0 1rem;
+}
+.wishlist button {
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  margin: 0 auto;
+  display: inline-block;
+  font-size: 1.6rem;
+}
+
+.addItem {
+  list-style-type: none;
+}
+
+/*******************USER CARD*******************/
+
+.age {
+  color:var(--color);
+}
+.nameUser, .userCard {
+  color:var(--colortitlebg)
+}
+
+/*******************ITEM*******************/
+
+.item > li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+.item > li > img {
+  width: 100%;
+  height: auto;
+}
+.item > li > div > p {
+  padding: 1rem;
+}
+.addItem > i {
+  color:black;
+  margin-bottom:2rem;
+}
+.infoWishlist {
+  text-align: left;
+}
+.infoWishlist > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+div > .addItem > i {
+  margin-top: 4rem;
+}
+/*******************WISHLIST*******************/
+
+.addWishlist > i, .linkWishlist {
+  color:white;
+}
+.linkWishlist {
+  color:black;
+}
+.newWishlist, #nameList {
+  border:solid 1px var(--color);
+  margin: 0.75rem;
+}
+.wlHeader {
+  display:flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+button {
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+ul {
+  padding: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .item > li > img {
+    width: 15rem;
+    height: auto;
+    padding: 2rem;
+  }
+  .infoWishlist {
+    padding: 3rem;
+    text-align: left;
+  }
+  .item > li {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+  }
+}
