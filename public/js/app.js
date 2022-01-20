@@ -30382,12 +30382,12 @@ var render = function () {
         _vm._v(" "),
         _c("div", { staticClass: "hate" }, [
           _c("i", { staticClass: "far fa-heart" }),
-          _vm._v(" " + _vm._s(_vm.user.hate_item)),
+          _vm._v(" " + _vm._s(_vm.user.like_item)),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "like" }, [
           _c("i", { staticClass: "fas fa-heart-broken" }),
-          _vm._v(" " + _vm._s(_vm.user.like_item)),
+          _vm._v(" " + _vm._s(_vm.user.hate_item)),
         ]),
       ]),
     ]),

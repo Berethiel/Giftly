@@ -5,8 +5,8 @@
                 <small class="age"><i class="fas fa-birthday-cake"></i> {{ user.birthdate }}</small>
             <div>
                 <div class="love"><i class="fas fa-heart"></i> {{ user.love_item }}</div>
-                <div class="hate"><i class="far fa-heart"></i> {{ user.hate_item }}</div>
-                <div class="like"><i class="fas fa-heart-broken"></i> {{ user.like_item }}</div>
+                <div class="hate"><i class="far fa-heart"></i> {{ user.like_item }}</div>
+                <div class="like"><i class="fas fa-heart-broken"></i> {{ user.hate_item }}</div>
             </div>
         </article>
     </div>
