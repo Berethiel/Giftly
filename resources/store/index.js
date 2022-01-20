@@ -51,7 +51,6 @@ export default new Vuex.Store({
         return axios
           .post('/api/wishlist/show', data)
           .then(({ data }) => {
-            //commit('getUserWishlist', data)
             return data;
           })
       },

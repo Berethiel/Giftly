@@ -57,8 +57,10 @@ import NewItemForm from './NewItemForm.vue';
                 }
             },
             suppress() {
-                this.$store.dispatch('suppressWishlist', {id: this.wishlist.id}).then(() => {
-                    this.$emit('reload-wishlist');
+                this.$store.dispatch('suppressWishlist', {id: this.wishlist.id}).then((data) => {
+                    if(!('error' in data)) {
+                        this.$emit('reload-wishlist');
+                    }
                 });
             },
             modify() {
@@ -70,9 +72,11 @@ import NewItemForm from './NewItemForm.vue';
                 }
             },
             update() {
-                this.$store.dispatch('updateWishlist', {id: this.wishlist.id, nameList: this.nameList}).then(() => {
+                this.$store.dispatch('updateWishlist', {id: this.wishlist.id, nameList: this.nameList}).then((data) => {
                     this.modifyWishlist = false;
-                    this.$emit('reload-wishlist');
+                    if(!('error' in data)) {
+                        this.$emit('reload-wishlist');
+                    }
                 });
             },
             reloadWishlist() {

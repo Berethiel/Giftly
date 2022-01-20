@@ -45,9 +45,12 @@ export default {
         },
         createWishlist() {
             this.$store.dispatch('createWishlist', {nameList: this.nameList, userId: this.user.id})
-                .then(() => {
-                    this.getUserWishlist();
-                    this.nameList = "";
+                .then((data) => {
+                    if(!('error' in data)) {
+                        this.getUserWishlist();
+                        this.nameList = "";
+                    }
+                    
                 });
         },
         reloadWishlist() {

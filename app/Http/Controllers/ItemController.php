@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ItemController extends Controller
 {
@@ -17,11 +18,19 @@ class ItemController extends Controller
             'shop_name' => $request->shopName,
         ]);
 
-        $response = [
-            'message' => 'L\'élement a bien été créée !',
-        ];
+        if (!is_null($item)) {
+            $response = [
+                'message' => 'L\'élement a bien été créée !',
+            ];
 
-        return response($response, 201);
+            return response($response, 201);
+        } else {
+            $response = [
+                'error' => 'Ça n\'a pas marché...',
+            ];
+
+            return $response;
+        }
     }
 
     public function update(Request $request)
@@ -34,12 +43,19 @@ class ItemController extends Controller
                 'adress_web' => $request->adressWeb,
                 'shop_name' => $request->shopName,
             ]);
+        if (!is_null($item)) {
+            $response = [
+                'message' => 'L\'élement a bien été modifié !',
+            ];
 
-        $response = [
-            'message' => 'L\'élement a bien été modifié !',
-        ];
+            return $response;
+        } else {
+            $response = [
+                'error' => 'Ça n\'a pas marché...',
+            ];
 
-        return response($response, 201);
+            return $response;
+        }
     }
 
     public function delete(Request $request)
@@ -47,10 +63,12 @@ class ItemController extends Controller
         $item = Item::find($request->id)
             ->delete();
 
+        $item = Item::where('id', '=', $request->id);
+
         $response = [
             'message' => 'L\'élement a bien été supprimée !',
         ];
 
-        return response($response, 201);
+        return $response;
     }
 }

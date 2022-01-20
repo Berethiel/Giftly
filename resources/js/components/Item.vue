@@ -46,8 +46,11 @@ import NewItemForm from './NewItemForm.vue';
         },
         methods: {
             suppress() {
-                this.$store.dispatch('suppressItem', {id: this.item.id});
-                this.$emit('reload-wishlist');
+                this.$store.dispatch('suppressItem', {id: this.item.id}).then((data) => {
+                    if(!('error' in data)) {
+                        this.$emit('reload-wishlist');
+                    }
+                });
             },
             openModal() {
                 if(this.updateItem === false) {

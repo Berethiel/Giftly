@@ -5309,10 +5309,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     suppress: function suppress() {
+      var _this = this;
+
       this.$store.dispatch('suppressItem', {
         id: this.item.id
+      }).then(function (data) {
+        if (!('error' in data)) {
+          _this.$emit('reload-wishlist');
+        }
       });
-      this.$emit('reload-wishlist');
     },
     openModal: function openModal() {
       if (this.updateItem === false) {
@@ -5412,8 +5417,10 @@ __webpack_require__.r(__webpack_exports__);
         adressWeb: this.adressWeb,
         shopName: this.shopName,
         idWishlist: this.idWishlist
-      }).then(function () {
-        _this.$emit('reload-wishlist');
+      }).then(function (data) {
+        if (!('error' in data)) {
+          _this.$emit('reload-wishlist');
+        }
       });
     },
     create: function create() {
@@ -5425,8 +5432,10 @@ __webpack_require__.r(__webpack_exports__);
         adressWeb: this.adressWeb,
         shopName: this.shopName,
         idWishlist: this.idWishlist
-      }).then(function () {
-        _this2.$emit('reload-wishlist');
+      }).then(function (data) {
+        if (!('error' in data)) {
+          _this2.$emit('reload-wishlist');
+        }
       });
     }
   }
@@ -5541,8 +5550,10 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$store.dispatch('suppressWishlist', {
         id: this.wishlist.id
-      }).then(function () {
-        _this.$emit('reload-wishlist');
+      }).then(function (data) {
+        if (!('error' in data)) {
+          _this.$emit('reload-wishlist');
+        }
       });
     },
     modify: function modify() {
@@ -5559,10 +5570,12 @@ __webpack_require__.r(__webpack_exports__);
       this.$store.dispatch('updateWishlist', {
         id: this.wishlist.id,
         nameList: this.nameList
-      }).then(function () {
+      }).then(function (data) {
         _this2.modifyWishlist = false;
 
-        _this2.$emit('reload-wishlist');
+        if (!('error' in data)) {
+          _this2.$emit('reload-wishlist');
+        }
       });
     },
     reloadWishlist: function reloadWishlist() {
@@ -5796,10 +5809,12 @@ __webpack_require__.r(__webpack_exports__);
       this.$store.dispatch('createWishlist', {
         nameList: this.nameList,
         userId: this.user.id
-      }).then(function () {
-        _this2.getUserWishlist();
+      }).then(function (data) {
+        if (!('error' in data)) {
+          _this2.getUserWishlist();
 
-        _this2.nameList = "";
+          _this2.nameList = "";
+        }
       });
     },
     reloadWishlist: function reloadWishlist() {
@@ -6317,7 +6332,6 @@ vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_2_
       var commit = _ref6.commit;
       return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/wishlist/show', data).then(function (_ref7) {
         var data = _ref7.data;
-        //commit('getUserWishlist', data)
         return data;
       });
     },

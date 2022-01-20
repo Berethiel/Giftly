@@ -35,10 +35,10 @@ class AuthController extends Controller
     }
     public function register(Request $request)
     {
-        /*$data = $request->validate([
+        $data = $request->validate([
             'email' => 'required|email',
             'password' => 'required'
-        ]);*/
+        ]);
 
         $user = User::where('email', $request->email)->first();
 
@@ -59,6 +59,18 @@ class AuthController extends Controller
                 'like_item' => $request->likeItem,
                 'hate_item' => $request->hateItem
             ]);
+            if (!is_null($user)) {
+                $response = [
+                    'message' => 'ok',
+                ];
+                return $response;
+            } else {
+                $response = [
+                    'error' => 'Ça n\'a pas marché...',
+                ];
+
+                return $response;
+            }
             $response = [
                 'message' => 'ok',
             ];

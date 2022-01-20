@@ -24,11 +24,19 @@ class WishlistController extends Controller
             'user_id' => $request->userId
         ]);
 
-        $response = [
-            'message' => 'La liste a bien été créée !',
-        ];
+        if (!is_null($wishlist)) {
+            $response = [
+                'message' => 'La liste a bien été créée !',
+            ];
 
-        return response($response, 201);
+            return $response;
+        } else {
+            $response = [
+                'error' => 'Ça n\'a pas marché...',
+            ];
+
+            return $response;
+        }
     }
 
     public function update(Request $request)
@@ -38,11 +46,19 @@ class WishlistController extends Controller
                 'name_list' => $request->nameList
             ]);
 
-        $response = [
-            'message' => 'Le nom de la liste a bien été modifié !',
-        ];
+        if (!is_null($wishlist)) {
+            $response = [
+                'message' => 'Le nom de la liste a bien été modifié !',
+            ];
 
-        return response($response, 201);
+            return $response;
+        } else {
+            $response = [
+                'error' => 'Ça n\'a pas marché...',
+            ];
+
+            return $response;
+        }
     }
 
     public function delete(Request $request)
@@ -54,6 +70,6 @@ class WishlistController extends Controller
             'message' => 'La liste a bien été supprimée !',
         ];
 
-        return response($response, 201);
+        return $response;
     }
 }

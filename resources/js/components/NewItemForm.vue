@@ -70,8 +70,10 @@
                     adressWeb: this.adressWeb,
                     shopName: this.shopName,
                     idWishlist: this.idWishlist
-                }).then(() => {
-                    this.$emit('reload-wishlist');
+                }).then((data) => {
+                    if(!('error' in data)) {
+                        this.$emit('reload-wishlist');
+                    }
                 });
             },
             create() {
@@ -81,8 +83,10 @@
                     adressWeb: this.adressWeb,
                     shopName: this.shopName,
                     idWishlist: this.idWishlist
-                }).then(() => {
-                    this.$emit('reload-wishlist');
+                }).then((data) => {
+                    if(!('error' in data)) {
+                        this.$emit('reload-wishlist');
+                    }
                 });
             }
         }
