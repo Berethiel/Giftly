@@ -96,7 +96,6 @@ export default {
                         birth: this.birth,
                     })
                     .then((response) => {
-                        console.log(response)
                         if(response === "ok") {
                             this.$router.push({name: 'login'})
                         } else {
@@ -105,7 +104,6 @@ export default {
                         
                     })
                     .catch(err => {
-                        console.log(err)
                         this.error = err.message;
                     })
             } else {

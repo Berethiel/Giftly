@@ -5313,11 +5313,8 @@ __webpack_require__.r(__webpack_exports__);
         id: this.item.id
       });
       this.$emit('reload-wishlist');
-      console.log('delete item');
     },
     openModal: function openModal() {
-      console.log('open modal');
-
       if (this.updateItem === false) {
         this.updateItem = true;
       } else if (this.updateItem === true) {
@@ -5325,7 +5322,6 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     reloadWishlist: function reloadWishlist() {
-      console.log('emit for update');
       this.$emit('reload-wishlist');
       this.updateItem = false;
     }
@@ -5397,21 +5393,18 @@ __webpack_require__.r(__webpack_exports__);
         this.nameItem = this.item.name_item;
         this.adressWeb = this.item.adress_web;
         this.shopName = this.item.shop_name;
-        console.log(this.item);
       }
     },
     dispatch: function dispatch() {
       if (this.type !== 'update') {
         this.create();
       } else if (this.type === 'update') {
-        console.log('call update');
         this.update();
       }
     },
     update: function update() {
       var _this = this;
 
-      console.log('in update');
       this.$store.dispatch('updateItem', {
         id: this.item.id,
         imgItem: this.imgItem,
@@ -5420,8 +5413,6 @@ __webpack_require__.r(__webpack_exports__);
         shopName: this.shopName,
         idWishlist: this.idWishlist
       }).then(function () {
-        console.log('update item');
-
         _this.$emit('reload-wishlist');
       });
     },
@@ -5436,8 +5427,6 @@ __webpack_require__.r(__webpack_exports__);
         idWishlist: this.idWishlist
       }).then(function () {
         _this2.$emit('reload-wishlist');
-
-        console.log('create item');
       });
     }
   }
@@ -5473,9 +5462,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: null
-  },
-  created: function created() {
-    console.log(this.user);
   }
 });
 
@@ -5557,8 +5543,6 @@ __webpack_require__.r(__webpack_exports__);
         id: this.wishlist.id
       }).then(function () {
         _this.$emit('reload-wishlist');
-
-        console.log('delete wishlist');
       });
     },
     modify: function modify() {
@@ -5579,12 +5563,9 @@ __webpack_require__.r(__webpack_exports__);
         _this2.modifyWishlist = false;
 
         _this2.$emit('reload-wishlist');
-
-        console.log('update wishlist');
       });
     },
     reloadWishlist: function reloadWishlist() {
-      console.log('reload items');
       this.$emit('reload-wishlist');
       this.newItem = false;
     }
@@ -5681,7 +5662,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(['isLogged'])),
   methods: {
     logout: function logout() {
-      console.log("je suis dans la fonction");
       this.$store.dispatch('logout');
     }
   }
@@ -5813,7 +5793,6 @@ __webpack_require__.r(__webpack_exports__);
     createWishlist: function createWishlist() {
       var _this2 = this;
 
-      console.log(this.user.id);
       this.$store.dispatch('createWishlist', {
         nameList: this.nameList,
         userId: this.user.id
@@ -5824,7 +5803,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     reloadWishlist: function reloadWishlist() {
-      console.log('recieved for update');
       this.getUserWishlist();
     }
   }
@@ -5946,7 +5924,6 @@ __webpack_require__.r(__webpack_exports__);
           name: 'dashboard'
         });
       })["catch"](function (err) {
-        console.log(err);
         _this.error = err;
       });
     }
@@ -6061,8 +6038,6 @@ __webpack_require__.r(__webpack_exports__);
           country: this.country,
           birth: this.birth
         }).then(function (response) {
-          console.log(response);
-
           if (response === "ok") {
             _this.$router.push({
               name: 'login'
@@ -6071,7 +6046,6 @@ __webpack_require__.r(__webpack_exports__);
             _this.error = response.message;
           }
         })["catch"](function (err) {
-          console.log(err);
           _this.error = err.message;
         });
       } else {

@@ -74,7 +74,6 @@
         },
         methods : {
             logout() {
-                console.log("je suis dans la fonction")
                 this.$store.dispatch('logout')
             }
         }

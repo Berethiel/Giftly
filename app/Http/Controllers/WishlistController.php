@@ -14,7 +14,6 @@ class WishlistController extends Controller
             ->with('items')
             ->get();
         $wishlist = ['wishlist' => $wishlist];
-        Log::alert($wishlist);
         return response($wishlist, 201);
     }
 

@@ -16,9 +16,6 @@
     export default {
         props: {
             user: null
-        },
-        created() {
-            console.log(this.user);
-        },
+        }
     }
 </script>

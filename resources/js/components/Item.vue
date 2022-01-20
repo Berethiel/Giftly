@@ -48,10 +48,8 @@ import NewItemForm from './NewItemForm.vue';
             suppress() {
                 this.$store.dispatch('suppressItem', {id: this.item.id});
                 this.$emit('reload-wishlist');
-                console.log('delete item');
             },
             openModal() {
-                console.log('open modal');
                 if(this.updateItem === false) {
                     this.updateItem = true;
                 } else if(this.updateItem === true) {
@@ -59,7 +57,6 @@ import NewItemForm from './NewItemForm.vue';
                 }
             },
             reloadWishlist() {
-                console.log('emit for update');
                 this.$emit('reload-wishlist');
                 this.updateItem = false;
             }

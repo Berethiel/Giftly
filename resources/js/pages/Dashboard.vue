@@ -44,7 +44,6 @@ export default {
                 });
         },
         createWishlist() {
-            console.log(this.user.id);
             this.$store.dispatch('createWishlist', {nameList: this.nameList, userId: this.user.id})
                 .then(() => {
                     this.getUserWishlist();
@@ -52,7 +51,6 @@ export default {
                 });
         },
         reloadWishlist() {
-            console.log('recieved for update');
             this.getUserWishlist();
         }
     }

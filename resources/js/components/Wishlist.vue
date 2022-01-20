@@ -59,7 +59,6 @@ import NewItemForm from './NewItemForm.vue';
             suppress() {
                 this.$store.dispatch('suppressWishlist', {id: this.wishlist.id}).then(() => {
                     this.$emit('reload-wishlist');
-                    console.log('delete wishlist');
                 });
             },
             modify() {
@@ -74,11 +73,9 @@ import NewItemForm from './NewItemForm.vue';
                 this.$store.dispatch('updateWishlist', {id: this.wishlist.id, nameList: this.nameList}).then(() => {
                     this.modifyWishlist = false;
                     this.$emit('reload-wishlist');
-                    console.log('update wishlist');
                 });
             },
             reloadWishlist() {
-                console.log('reload items');
                 this.$emit('reload-wishlist');
                 this.newItem = false;
             }

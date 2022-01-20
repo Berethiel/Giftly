@@ -53,19 +53,16 @@
                     this.nameItem = this.item.name_item;
                     this.adressWeb = this.item.adress_web;
                     this.shopName = this.item.shop_name;
-                    console.log(this.item);
                 }
             },
             dispatch() {
                 if(this.type !== 'update') {
                     this.create();
                 } else if(this.type === 'update') {
-                    console.log('call update');
                     this.update();
                 }
             },
             update() {
-                console.log('in update')
                 this.$store.dispatch('updateItem', {
                     id: this.item.id,
                     imgItem: this.imgItem,
@@ -74,7 +71,6 @@
                     shopName: this.shopName,
                     idWishlist: this.idWishlist
                 }).then(() => {
-                    console.log('update item');
                     this.$emit('reload-wishlist');
                 });
             },
@@ -87,7 +83,6 @@
                     idWishlist: this.idWishlist
                 }).then(() => {
                     this.$emit('reload-wishlist');
-                    console.log('create item');
                 });
             }
         }
